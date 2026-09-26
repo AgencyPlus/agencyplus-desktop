@@ -1,0 +1,56 @@
+{
+  "name": "agencyplus-desktop",
+  "version": "1.0.0",
+  "description": "AgencyPlus Desktop — the same platform, installed on your computer",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack":  "electron-builder --dir",
+    "dist":  "electron-builder",
+    "dist:win":  "electron-builder --win",
+    "dist:mac":  "electron-builder --mac",
+    "dist:linux":"electron-builder --linux"
+  },
+  "build": {
+    "appId":       "com.agencyplus.desktop",
+    "productName": "AgencyPlus",
+    "copyright":   "Copyright © 2026 AgencyPlus",
+    "directories": { "output": "dist" },
+    "files": ["src/**/*", "assets/**/*"],
+    "mac": {
+      "category": "public.app-category.business",
+      "icon":     "assets/icon.icns",
+      "target":   [{ "target": "dmg", "arch": ["x64", "arm64"] }]
+    },
+    "win": {
+      "icon":   "assets/icon.ico",
+      "target": [{ "target": "nsis", "arch": ["x64"] }]
+    },
+    "linux": {
+      "icon":   "assets/icon.png",
+      "target": [{ "target": "AppImage", "arch": ["x64"] }],
+      "category": "Office"
+    },
+    "nsis": {
+      "oneClick":          false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon":     "assets/icon.ico",
+      "uninstallerIcon":   "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner":    "YOUR_GITHUB_USERNAME",
+      "repo":     "agencyplus-desktop"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "electron":         "^28.0.0",
+    "electron-builder": "^24.9.1"
+  }
+}
