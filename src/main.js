@@ -25,7 +25,7 @@ const { autoUpdater } = require('electron-updater');
 // ── Configuration ─────────────────────────────────────────────────────────────
 // Change APP_URL to your live Netlify domain before building.
 // The dev override lets you point at localhost:3000 during development.
-const APP_URL  = process.env.AGENCYPLUS_URL || 'https://your-agencyplus-app.netlify.app';
+const APP_URL  = process.env.AGENCYPLUS_URL || 'https://agencyplus.com.et';
 const IS_DEV   = !app.isPackaged;
 const ICON_PATH = path.join(__dirname, '../assets/icon.png');
 

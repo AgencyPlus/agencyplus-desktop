@@ -1,0 +1,44 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.agencyplus.desktop
+productName: AgencyPlus
+copyright: Copyright © 2026 AgencyPlus
+files:
+  - filter:
+      - src/**/*
+      - assets/**/*
+mac:
+  category: public.app-category.business
+  icon: assets/icon.icns
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+win:
+  icon: assets/icon.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+linux:
+  icon: assets/icon.png
+  target:
+    - target: AppImage
+      arch:
+        - x64
+  category: Office
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  installerIcon: assets/icon.ico
+  uninstallerIcon: assets/icon.ico
+  installerHeaderIcon: assets/icon.ico
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+publish:
+  provider: github
+  owner: AgencyPlus
+  repo: agencyplus-desktop
+electronVersion: 28.3.3
